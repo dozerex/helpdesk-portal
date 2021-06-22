@@ -5,9 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Avg
 
-from .models import Complaint
+from .models import Complaint, ProfileModel
 from django.contrib.auth.models import User
-from .forms import LoginForm, ComplaintForm
+from .forms import LoginForm, ComplaintForm, ProfileForm
 
 
 # Create your views here.
@@ -82,14 +82,49 @@ def logoutView(request):
     return redirect("login")
 
 
-# @login_required(login_url='login')
-# def your_complaints(request):
-#     user = User.objects.get(username=request.user.username)
-#     complaints = Complaint.objects.filter(is_solved=False, user=user)
-#     total_complaints = complaints.count()
-#     avg_severity = complaints.aggregate(Avg("severity"))
-#     return render(request, "complaints/your_complaints.html", {
-#         "complaints": complaints,
-#         "total": total_complaints,
-#         "avg_severity": avg_severity
-#     })
+login_required(login_url="login")
+
+
+def profileView(request):
+    if request.method == "POST":
+        print("POST")
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            print("success")
+            profile = ProfileModel.objects.get(username=request.user.username)
+            profile.first_name = form.cleaned_data.get("first_name", "")
+            profile.last_name = form.cleaned_data.get("last_name", "")
+            profile.email = form.cleaned_data.get("email", "")
+            profile.phone = form.cleaned_data.get("phone", "")
+            profile.dob = form.cleaned_data.get("dob", "")
+            profile.department = form.cleaned_data.get("department", "")
+            profile.degree = form.cleaned_data.get("degree", "")
+            profile.save()
+            return redirect("profile")
+    student = User.objects.get(username=request.user.username)
+    print("fail")
+    user = ProfileModel.objects.get(user=student)
+    form = ProfileForm({
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "email": user.email,
+        "phone": user.phone,
+        "dob": user.dob,
+        "department": user.department,
+        "degree": user.degree
+    })
+    return render(request, "complaints/profile.html", {
+        "form": form
+    })
+
+    # @login_required(login_url='login')
+    # def your_complaints(request):
+    #     user = User.objects.get(username=request.user.username)
+    #     complaints = Complaint.objects.filter(is_solved=False, user=user)
+    #     total_complaints = complaints.count()
+    #     avg_severity = complaints.aggregate(Avg("severity"))
+    #     return render(request, "complaints/your_complaints.html", {
+    #         "complaints": complaints,
+    #         "total": total_complaints,
+    #         "avg_severity": avg_severity
+    #     })

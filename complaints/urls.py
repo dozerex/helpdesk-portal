@@ -2,11 +2,13 @@ from complaints.views import homeView
 from django.urls import path
 
 
-from .views import homeView, detailView, createView, loginView, logoutView
+from .views import homeView, detailView, createView, loginView, logoutView, profileView
+
 urlpatterns = [
     path("", homeView, name="home"),
     path("logout", logoutView, name="logout"),
     path("complaints/<int:id>", detailView, name="detail"),
     path("create", createView, name="create"),
-    path("login", loginView, name="login")
+    path("login", loginView, name="login"),
+    path("profile", profileView, name="profile")
 ]

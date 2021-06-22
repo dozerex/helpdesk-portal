@@ -23,7 +23,7 @@
             </nav>
             <div class="main-nav-logout">
                 {% if request.user.username %}
-                    <p>Hello, {{request.user.username}}</p>
+                    <a class="main-nav-item" href=" {% url 'profile' %} ">Hello, {{request.user.username}}</a>
                 {% endif %}
                 <a class="main-nav-item" href=" {% url 'logout' %} ">Logout</a>
             </div>
