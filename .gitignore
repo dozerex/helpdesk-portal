@@ -3,3 +3,4 @@ db.sqlite3
 uploads/
 complaints/migrations/
 complaints/__pycache__/
+HelpDeskv1/__pycache__/
