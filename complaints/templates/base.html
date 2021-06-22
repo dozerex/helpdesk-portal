@@ -22,7 +22,7 @@
                 <a class="main-nav-item post-active" href=" {% url 'create' %} ">Post</a>
             </nav>
             <div class="main-nav-logout">
-                <p>Hello! Username</p>
+                <p>Hello, {{request.user.username}}</p>
                 <a class="main-nav-item" href=" {% url 'logout' %} ">Logout</a>
             </div>
         </div>
