@@ -1,0 +1,58 @@
+.main-home {
+    width: 90%;
+    margin: 64px auto;
+}
+
+.home-title {
+    width: 100%;
+    margin: 0 auto;
+    padding: 8px 16px;
+    text-align: center;
+}
+
+.complaint-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.complaint-list .complaint-list-item {
+    border: 4px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 8px;
+    margin: 32px 0;
+}
+
+.complaint-list .complaint-list-item:hover {
+    background: #ccc;
+}
+
+.complaint-list-item img {
+    width: 160px;
+    height: 160px;
+}
+
+
+.complaint-text-content,
+.complaint-list-item img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.complaint-list-item img {
+    border-radius: 4px;
+}
+
+.complaint-text-content {
+    width: calc(100% - 210px);
+    margin: 0 20px;
+}
+
+.complaint-text-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.complaint-text-content p span{
+    font-weight: bold;
+}

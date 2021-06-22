@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href=" {% static 'css/home.css' %} ">
+{% endblock style %}
+
+
+{% block title %}
+    Complaints
+{% endblock title %}
+
+{% block content %}
+    <main class="main-home">
+        <h1 class="home-title">Complaint List</h1>
+        <ul class="complaint-list">
+            {% for complaint in complaints %}
+                <li class="complaint-list-item">
+                    <img src="{{complaint.image.url}}" alt="">
+                    <div class="complaint-text-content">
+                        <a href="{{complaint.get_absolute_url}}">
+                            <p class="title"><span>Problem : </span>{{complaint.title}}</p>
+                            <p><span>Where : </span>{{complaint.location}}</p>
+                            <p class="username"><span>Who : </span>{{complaint.user.username}}</p>
+                            <p class="date"><span>When : </span>{{complaint.date}}</p>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock content %}
+
+

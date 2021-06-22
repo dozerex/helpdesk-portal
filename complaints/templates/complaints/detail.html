@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock style %}
+
+
+
+{% block title %}
+    {{complaint.title}}
+{% endblock title %}
+
+{% block content %}
+    <main class="main-detail">
+        <img src="{{complaint.image.url}}" alt="">
+        <p><span>Title : </span>{{complaint.title}}</p>
+        <p><span>On : </span>{{complaint.date}}</p>
+        <p><span>Urgency : </span>{{complaint.urgency}}</p>
+        <p><span>Description : </span>{{complaint.text}}</p>
+    </main>
+{% endblock content %}
+
+
+
+

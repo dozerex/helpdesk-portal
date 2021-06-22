@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+{% endblock style %}
+
+
+{% block title %}
+    Create
+{% endblock title %}
+
+
+{% block content %}
+    <main id="main-form">
+        <h1 class="post-heading">Post complaint</h1>
+        <form class="create-form" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                {{field.label_tag}}
+                {{field}}
+                {{field.errors}}
+            {% endfor %}
+            <button>Submit</button>
+        </form>
+        <ul>
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock content %}

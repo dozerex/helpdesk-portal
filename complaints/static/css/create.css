@@ -1,0 +1,79 @@
+
+#main-form {
+    width: 90%;
+    margin: 64px auto;
+}
+
+#main-form .post-heading {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+    .create-form {
+        width: 480px;
+        margin: auto;
+    }
+} */
+
+.create-form {
+    padding: 16px;
+}
+
+
+.create-form input,
+.create-form label,
+.create-form textarea {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.create-form label {
+    font-weight: bold;
+}
+
+.create-form input,
+.create-form textarea {
+    border: 1px solid #ccc;
+    font: inherit;
+    padding: 3.2px 8px;
+}
+
+.create-form input[type="file"] {
+    border: none;
+}
+
+
+.create-form input:focus,
+.create-form textarea:focus {
+    outline: none;
+    background-color: #ccc;
+}
+
+.create-form label[for="id_image"], 
+.create-form label[for="id_image"] + input {
+    display: inline-block;
+    width: auto;
+}
+
+.create-form button {
+    display: block;
+    margin: 16px auto;
+    background: #20232a;
+    padding: 6px 10px;
+    border: 4px solid #20232a;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.create-form button:hover {
+    cursor: pointer;
+    color: #61dafb;
+}
+
+
+
+
+

@@ -1,0 +1,21 @@
+.main-detail {
+    width: 480px;
+    margin: 64px auto;
+}
+
+.main-detail img {
+    display: inline-block;
+    height: 400px;
+    width: 480px;
+    border-radius: 8px;
+}
+
+.main-detail p {
+    font-size: 24px;
+}
+
+.main-detail p span {
+    font-size: 32px;
+    font-weight: bold;
+}
+
