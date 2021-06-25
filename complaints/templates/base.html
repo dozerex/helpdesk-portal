@@ -2,33 +2,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% block style %}{% endblock style %}
-    <title>
-        {% block title %}{% endblock title %}
-    </title>
-</head>
-<body>
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
     <header id="main-header">
-        <div class="main-nav-container">
-            <nav class="main-nav">
-                <a class="main-nav-item home-active" href=" {% url 'home' %} ">Home</a>
-                <a class="main-nav-item post-active" href=" {% url 'create' %} ">Post</a>
-            </nav>
-            <div class="main-nav-logout">
-                {% if request.user.username %}
-                    <a class="main-nav-item" href=" {% url 'profile' %} ">Hello, {{request.user.username}}</a>
-                {% endif %}
-                <a class="main-nav-item" href=" {% url 'logout' %} ">Logout</a>
-            </div>
-        </div>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li class="main-nav-item home">
+            <a href=" {% url 'home' %} ">Home</a>
+          </li>
+          <li class="main-nav-item post">
+            <a  href=" {% url 'create' %} ">Post</a>
+          </li>
+          <li class="main-nav-item profile">
+            {% if request.user.username %}
+              <a href=" {% url 'profile' %} ">Hello, {{request.user.username}}</a>
+            {% endif %}
+          </li>
+          <li  class="main-nav-item logout">
+            <a href=" {% url 'logout' %} ">Logout</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     {% block content %}{% endblock content %}
-</body>
+  </body>
 </html>
