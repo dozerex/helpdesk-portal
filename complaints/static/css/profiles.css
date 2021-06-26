@@ -1,0 +1,56 @@
+#profile-form {
+    width: 90%;
+    margin: 80px auto;
+}
+
+.profile-form-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-item {
+    width: 40%;
+    margin: 8px auto;
+}
+
+
+.profile-item label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.profile-item input, 
+.profile-item select {
+    display: block;
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+.profile-item input:focus {
+    background-color: #ccc;
+    outline: none;
+}
+
+.profile-submit-btn {
+    width: 10%;
+    margin: 8px auto;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #20232a;
+    font-weight: bold;
+    border: 2px solid #20232a;
+    color: white;
+}
+
+.profile-submit-btn:hover {
+    color: #61dafb;
+    cursor: pointer;
+}

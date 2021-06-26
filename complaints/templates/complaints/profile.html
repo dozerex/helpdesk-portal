@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profiles.css' %}">
 {% endblock style %}
 
 
@@ -13,15 +13,20 @@
 {% endblock title %}
 
 {% block content %}
-    <main id="main-form">
+    <main id="profile-form">
         <form action="" method="POST">
             {% csrf_token %}
-            {% for field in form %}
-                {{field.label_tag}}
-                {{field}}
-                {{field.errors}}
-            {% endfor %}
-            <button>submit</button>  
+            <ul class="profile-form-list">
+                {% for field in form %}
+                    <li class="profile-item">
+                        {{field.label_tag}}
+                        {{field}}
+                        {{field.errors}}
+                    </li>
+                {% endfor %}
+                <button class="profile-submit-btn">submit</button>
+            </ul>
+              
         </form>
     </main>
 {% endblock content %}
